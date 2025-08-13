@@ -7,29 +7,25 @@ from datetime import date
 # Page Config & Theming
 # -----------------------------
 st.set_page_config(
-    page_title="일본어 · 일본문화 안내", 
-    page_icon="🇯🇵", 
+    page_title="고2 일본어 · 일본문화 안내",
+    page_icon="🇯🇵",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="expanded",
 )
 
 # Subtle CSS for a friendlier look
 st.markdown(
     """
     <style>
-        .main > div {
-            padding-top: 1.5rem;
-        }
+        .main > div { padding-top: 1.5rem; }
         .hero {
             padding: 2rem 2rem;
             background: linear-gradient(135deg, rgba(255,99,132,0.08), rgba(54,162,235,0.08));
             border-radius: 18px;
             border: 1px solid rgba(120,120,120,0.15);
         }
-        .tag {
-            display: inline-block; padding: 0.25rem 0.6rem; border-radius: 999px; font-size: 0.8rem;
-            background: rgba(255,255,255,0.6); border: 1px solid rgba(120,120,120,0.25); margin-right: .4rem;
-        }
+        .tag { display: inline-block; padding: 0.25rem 0.6rem; border-radius: 999px; font-size: 0.8rem;
+               background: rgba(255,255,255,0.6); border: 1px solid rgba(120,120,120,0.25); margin-right: .4rem; }
         .card {border:1px solid rgba(120,120,120,0.2); border-radius: 16px; padding: 1rem; background: rgba(255,255,255,0.65)}
         .metric {text-align:center; border:1px solid rgba(120,120,120,0.2); border-radius: 16px; padding: 1rem; background: white}
         .emoji {font-size: 1.9rem}
@@ -47,7 +43,7 @@ st.markdown(
 # -----------------------------
 # Sidebar Navigation
 # -----------------------------
-st.sidebar.title("📚 일본어·일본문화")
+st.sidebar.title("📚 고2 일본어·일본문화")
 nav = st.sidebar.radio(
     "빠르게 이동",
     (
@@ -69,44 +65,44 @@ st.sidebar.caption("교사: 일본어과 / 문의: teacher@example.com")
 # Helper Data
 # -----------------------------
 levels_df = pd.DataFrame({
-    "수준": ["초급", "중급", "심화"],
+    "수준": ["기초 다지기(고2)", "실전 회화·문형 확장(고2)", "심화·진로 연계(고2)"],
     "학습 목표": [
-        "히라가나·가타카나 습득, 기초 인사·자기소개",
-        "기본 문형 확장, 상황별 회화(가게, 길찾기 등)",
-        "프로젝트형 과제, JLPT·말하기 대회 준비"
+        "히라가나·가타카나 완성, 기초 회화 리마인드, 자기소개·학교소개 업그레이드",
+        "경어(존경·겸양) 기초, 면접·전화·이메일 표현, 상황별 문제 해결 대화",
+        "프로젝트 프레젠테이션, 공민 이슈 토론 일본어, JLPT N3~N2 대비"
     ],
     "평가": [
-        "퀴즈·말하기(쇼텔), 포트폴리오",
-        "역할극·듣기, 수행평가",
-        "프로젝트 발표, 포트폴리오·성찰일지"
+        "퀴즈·말하기, 성찰 포트폴리오",
+        "역할극·면접 시뮬, 협업 과제",
+        "프로젝트 발표·리서치 보고서·포트폴리오"
     ]
 })
 
 culture_df = pd.DataFrame({
     "테마": [
-        "사계절 문화", "전통·예술", "생활·요리", "대중문화"
+        "사계절 문화", "전통·예술", "생활·요리", "현대사회·대중문화"
     ],
     "예시 활동": [
-        "봄 사쿠라·단오/여름 우치와·풍령·테루테루보즈/가을 단풍·달맞이/겨울 신년문화",
-        "종이접기·서예·와가시 색칠·전통놀이(켄다마)",
-        "오니기리 모형·젓가락 매너·빈티지 포장 디자인",
-        "애니·J-POP 가사 읽기·지역 PR 영상 제작"
+        "봄 사쿠라·여름 축제·가을 단풍·겨울 신년문화 심화 리서치",
+        "종이접기·서예·와가시 디자인 + 전시 큐레이션",
+        "오니기리·벤토 문화 분석, 젓가락 매너 캠페인 영상",
+        "애니·J-POP 가사 읽기, 일본 미디어 리터러시, 지역 PR 영상 제작"
     ],
 })
 
 calendar_df = pd.DataFrame({
     "월": [f"{m}월" for m in range(3, 13)],
     "핵심 주제": [
-        "학기 OT·히라가나",
-        "가타카나·인사말",
-        "자기소개·취미",
-        "학교생활·동아리",
-        "가게·주문·가격",
-        "길찾기·교통",
-        "일본 축제·여름 문화(풍령·테루테루보즈)",
-        "가정·초대·선물",
-        "계절과 날씨·단풍",
-        "연말 정리·프로젝트 발표",
+        "학기 OT·목표 설정·자기소개(리더십)",
+        "경어 기초·정중 표현(면접·전화)",
+        "학교생활·동아리 PR 스피치",
+        "가게·알바 표현·가격·전화 주문",
+        "진로 탐색·이메일·자기소개서 문형",
+        "공민 연계 토론: SDGs·지역 문제",
+        "여름 문화 주간·국제교류 준비",
+        "지역 조사·인터뷰 기획(온라인 교류)",
+        "프레젠테이션 스킬·데이터 시각화",
+        "포트폴리오·말하기 종합 평가",
     ],
 })
 
@@ -122,7 +118,8 @@ hiragana = {
 phrases = {
     "인사": ["おはよう", "こんにちは", "こんばんは"],
     "감사": ["ありがとう", "ありがとうございます"],
-    "정중 표현": ["お願いします", "すみません"]
+    "정중 표현": ["お願いします", "すみません"],
+    "경어": ["よろしくお願いいたします", "失礼いたします", "お世話になっております"],
 }
 
 if "quiz_state" not in st.session_state:
@@ -145,9 +142,10 @@ def page_home():
             <div class='tag'>제2외국어</div>
             <div class='tag'>일본어</div>
             <div class='tag'>일본문화</div>
-            <h1>🇯🇵 일본어 & 일본문화 과목 안내</h1>
-            <p class='big'>한 번 배워두면 평생 쓰는 언어, 그리고 재미있는 문화 체험까지!<br> 
-            모든 학생이 <b>쉽고 즐겁게</b> 시작할 수 있도록 준비했습니다.</p>
+            <div class='tag'>고2 맞춤</div>
+            <h1>🇯🇵 고2 일본어 & 일본문화 과목 안내</h1>
+            <p class='big'>대학·진로를 준비하는 시기에 맞춰 <b>실전 회화와 프로젝트</b>를 강화했어요.<br>
+            모두가 <b>자신 있게 말하고 발표</b>할 수 있도록 설계했습니다.</p>
         </div>
         """,
         unsafe_allow_html=True,
@@ -155,23 +153,22 @@ def page_home():
 
     c1, c2, c3, c4 = st.columns(4)
     with c1:
-        st.markdown("<div class='metric'><div class='emoji'>🗣️</div><b>회화 중심</b><br><span class='small-muted'>롤플레이·실전 표현</span></div>", unsafe_allow_html=True)
+        st.markdown("<div class='metric'><div class='emoji'>🗣️</div><b>실전 회화</b><br><span class='small-muted'>면접·전화·이메일</span></div>", unsafe_allow_html=True)
     with c2:
-        st.markdown("<div class='metric'><div class='emoji'>🎎</div><b>문화 체험</b><br><span class='small-muted'>만들기·프로젝트</span></div>", unsafe_allow_html=True)
+        st.markdown("<div class='metric'><div class='emoji'>🎎</div><b>문화·연구</b><br><span class='small-muted'>리서치·전시</span></div>", unsafe_allow_html=True)
     with c3:
-        st.markdown("<div class='metric'><div class='emoji'>🧭</div><b>진로 연계</b><br><span class='small-muted'>관광·콘텐츠·통번역</span></div>", unsafe_allow_html=True)
+        st.markdown("<div class='metric'><div class='emoji'>🧭</div><b>진로 연계</b><br><span class='small-muted'>콘텐츠·관광·통번역</span></div>", unsafe_allow_html=True)
     with c4:
-        st.markdown("<div class='metric'><div class='emoji'>🏆</div><b>성취 지원</b><br><span class='small-muted'>JLPT·말하기 대회</span></div>", unsafe_allow_html=True)
+        st.markdown("<div class='metric'><div class='emoji'>🏆</div><b>성취 지원</b><br><span class='small-muted'>JLPT N3~N2</span></div>", unsafe_allow_html=True)
 
     st.markdown("---")
     st.subheader("오늘의 한 마디 · 今日のひとこと")
     day_phrases = [
-        ("よろしくお願いします", "잘 부탁드립니다"),
-        ("はじめまして", "처음 뵙겠습니다"),
+        ("よろしくお願いいたします", "잘 부탁드립니다(경어)"),
+        ("お世話になっております", "늘 신세지고 있습니다(비즈니스)"),
+        ("失礼いたします", "실례하겠습니다(격식)"),
         ("ありがとうございます", "감사합니다"),
-        ("がんばって！", "힘내!"),
     ]
-    # Rotate by date
     idx = date.today().toordinal() % len(day_phrases)
     jp, kr = day_phrases[idx]
     st.markdown(f"### {jp}  ")
@@ -181,8 +178,8 @@ def page_home():
 def page_why():
     st.header("왜 일본어를 배울까요?")
     st.write(
-        "일본어는 한국어와 어순이 비슷하고 한자를 공유해 **초반 진입 장벽이 낮은 언어**입니다.\n"
-        "콘텐츠·관광·비즈니스 분야에서 활용도가 높고, 교류 활동으로 **국제 감각**을 기를 수 있습니다."
+        "고2는 진로를 구체화하는 시기입니다. 일본어는 한국어와 어순이 비슷해 **단기간 성취**를 느끼기 쉽고,\n"
+        "콘텐츠·관광·비즈니스까지 활용도가 높아 **대학·취업 포트폴리오**에 강점이 됩니다."
     )
     a,b = st.columns(2)
     with a:
@@ -191,9 +188,9 @@ def page_why():
             <div class='card'>
             <h4>학습 장점</h4>
             <ul>
-              <li>한글과 어순 유사 → 문장 만들기 쉬움</li>
-              <li>말하기·듣기 위주 수업 → 실전 즉시 활용</li>
-              <li>짧은 기간에도 성취 체감 ↑</li>
+              <li>한글과 어순 유사 → 문장 생성이 쉬움</li>
+              <li>면접·전화·이메일 등 실제 상황 훈련</li>
+              <li>프로젝트 결과물을 포트폴리오로 전환</li>
             </ul>
             </div>
             """,
@@ -224,26 +221,25 @@ def page_courses():
         with st.expander("단원별 핵심 표현 예시 보기"):
             st.markdown(
                 """
-                - 인사·소개: おはよう / こんにちは / わたしはOOです
-                - 가게·주문: これをください / いくらですか
-                - 길찾기: 駅はどこですか / 右・左・まっすぐ
-                - 취미: 音楽が好きです / サッカーをします
+                - 인사·경어: お世話になっております / よろしくお願いいたします
+                - 면접: 志望動機は〜です / 強みは〜です
+                - 전화·가게: 〜をお願いします / いくらですか / 予約できますか
+                - 이메일: いつもお世話になっております。〜についてお問い合わせいたします。
                 """
             )
-        st.info("평가: 수행 중심(역할극·프로젝트)과 성찰 포트폴리오 비중을 높입니다.")
+        st.info("평가: 수행 중심(면접 롤플레이·프로젝트)과 성찰 포트폴리오 비중을 높입니다.")
 
     with t2:
         st.subheader("일본문화")
         st.dataframe(culture_df, use_container_width=True)
         st.markdown(
-            "- 대표 활동 예시: 풍령 만들기, 테루테루보즈, 와시츠(다다미) 모형, 젓가락 매너, 지역 PR 영상 제작 등"
+            "- 대표 활동 예시: 풍령 만들기, 테루테루보즈, 와시츠 모형, 젓가락 매너 캠페인, 지역 PR 영상 제작 등"
         )
-        st.success("문화 과목은 협업 프로젝트로 마무리합니다: ‘우리 동네 일본문화 전시’ or ‘한·일 문화카드 아카이브’.")
+        st.success("문화 과목은 협업 프로젝트로 마무리: ‘우리 학교·지역 일본문화 전시’ 또는 ‘공민 이슈 일본어 카드뉴스’.")
 
 
 def _new_quiz_question():
     k, v = random.choice(list(hiragana.items()))
-    # Create 3 wrong options
     wrong = random.sample([x for x in hiragana.values() if x != v], 3)
     options = wrong + [v]
     random.shuffle(options)
@@ -293,7 +289,7 @@ def page_tools():
             item = st.selectbox("표현", phrases[intent])
         name = st.text_input("이름을 입력(선택):", "")
         if st.button("문장 만들기"):
-            if intent == "인사" and name:
+            if intent in ("인사", "경어") and name:
                 out = f"{item}、{name}さん！"
             else:
                 out = item
@@ -303,9 +299,9 @@ def page_tools():
     with t3:
         st.subheader("미니 단어장")
         words = pd.DataFrame({
-            "日本語": ["ありがとう", "ごめんなさい", "ください", "いくら", "たのしい"],
-            "한국어": ["고마워", "미안해", "주세요", "얼마", "즐겁다"],
-            "발음": ["arigatou", "gomen nasai", "kudasai", "ikura", "tanoshii"],
+            "日本語": ["ありがとう", "ごめんなさい", "ください", "いくら", "たのしい", "面接", "予約", "履歴書"],
+            "한국어": ["고마워", "미안해", "주세요", "얼마", "즐겁다", "면접", "예약", "이력서"],
+            "발음": ["arigatou", "gomen nasai", "kudasai", "ikura", "tanoshii", "mensetsu", "yoyaku", "rirekisho"],
         })
         st.dataframe(words, hide_index=True, use_container_width=True)
 
@@ -314,15 +310,15 @@ def page_activities():
     st.header("수업 활동")
     st.markdown(
         """
-        - **롤플레이**: 가게 주문, 길 묻기, 소개하기 등 실전 대화 연습
-        - **문화 만들기**: 풍령·테루테루보즈·와시츠 모형 등 만들기 활동
-        - **프로젝트**: 일본 지역 PR, 한·일 문화 비교 카드, 학교생활 브이로그(스크립트 일본어)
-        - **교류 활동**: 온라인 국제교류(자기소개·학교소개·문화 소개)
-        - **평가**: 과정 중심 평가(참여도·협업·발표)와 포트폴리오
+        - **롤플레이**: 알바 면접, 전화 문의, 가게 주문, 길 안내 등 실전 대화
+        - **문화 만들기**: 풍령·테루테루보즈·와시츠 모형 + 전시 기획
+        - **프로젝트**: 일본 지역/기업 PR, 공민 이슈(환경·고령화·관광) 인포그래픽 제작
+        - **교류 활동**: 온라인 국제교류(학교·지역 소개, 공동 토론, 인터뷰)
+        - **평가**: 과정 중심(참여·협업·문제해결) + 프레젠테이션·포트폴리오
         """
     )
 
-    st.info("교류 학교와 연계하여 ‘공민(사회)’ 주제를 접목한 토론 활동도 설계합니다: 지역 문제, 환경, 문화 다양성 등.")
+    st.info("고2 수준에 맞춰 공민(사회) 주제를 심화 연결합니다: 지역 문제·환경·다양성·디지털 시민성 등으로 토론·발표를 진행합니다.")
 
 
 def page_calendar():
@@ -331,10 +327,10 @@ def page_calendar():
     st.markdown(
         """
         **주요 행사**
-        - 5월: 일본어 말하기 챌린지(클래스 영상 릴레이)
-        - 7월: 여름 문화 주간(풍령·우치와)
-        - 9~10월: 온라인 국제교류(학교·지역 소개)
-        - 12월: 종합 프로젝트 전시회
+        - 5월: 일본어 면접·스피치 챌린지
+        - 7월: 여름 문화 주간(풍령·우치와) + 교류 준비
+        - 9~10월: 온라인 국제교류(지역·공민 주제 토론)
+        - 12월: 종합 프로젝트 전시·포트폴리오 리뷰
         """
     )
 
@@ -342,13 +338,13 @@ def page_calendar():
 def page_faq():
     st.header("FAQ & 문의")
     with st.expander("일본어가 처음인데 따라갈 수 있나요?"):
-        st.write("네. 히라가나부터 단계적으로 배우며, 말하기 활동으로 자신감을 키웁니다.")
+        st.write("네. 기초 리마인드 후 고2 수준 표현·경어로 확장합니다. 개별 보충도 제공해요.")
     with st.expander("일본문화 과목은 어떤가요?"):
-        st.write("만들기·체험 중심으로 즐겁게 배우며, 결과물을 전시·공유합니다.")
+        st.write("만들기·리서치·전시까지 이어지는 프로젝트형 수업으로 심화 학습이 가능합니다.")
     with st.expander("평가가 부담스럽진 않나요?"):
-        st.write("과정 중심으로 참여·협업·발표를 중시합니다. 작은 성취를 꾸준히 쌓아요.")
+        st.write("과정 중심 평가로 성장 과정을 기록합니다. 발표·협업 능력도 반영해요.")
     with st.expander("진로에 도움이 되나요?"):
-        st.write("콘텐츠·관광·국제교류 등 다양한 진로와 연결됩니다.")
+        st.write("콘텐츠·관광·서비스·국제교류·통번역 등 다양한 진로와 연결되며 JLPT N3~N2 대비에도 도움이 됩니다.")
 
     st.markdown("---")
     st.subheader("문의")
@@ -379,4 +375,4 @@ else:
 
 # Footer note
 st.markdown("<hr>", unsafe_allow_html=True)
-st.caption("© 일본어·일본문화 과목 안내 — 모두가 즐겁게 배우는 수업을 지향합니다.")
+st.caption("© 고2 일본어·일본문화 과목 안내 — 실전 회화·프로젝트로 자신감을 키웁니다.")
